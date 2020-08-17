@@ -7,9 +7,13 @@
     "declarations": true
   },
   "dependencies": {
+    "asar": "^3.0.3",
+    "asar-async": "^1.0.2",
     "egg": "^2.15.1",
-    "egg-mongoose": "^3.2.0",
-    "egg-scripts": "^2.11.0"
+    "egg-mongoose": "3.3.0",
+    "egg-scripts": "^2.11.0",
+    "mkdirp": "^1.0.4",
+    "unzip": "^0.1.11"
   },
   "devDependencies": {
     "autod": "^3.0.1",

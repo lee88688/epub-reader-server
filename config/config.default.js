@@ -2,6 +2,8 @@
 
 'use strict';
 
+const path = require('path');
+
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -20,7 +22,8 @@ module.exports = appInfo => {
 
   // add your user config here
   const userConfig = {
-    // myAppName: 'egg',
+    tempDir: path.join(appInfo.root, 'temp'),
+    asarDir: path.join(appInfo.root, 'asar'),
   };
 
   return {
