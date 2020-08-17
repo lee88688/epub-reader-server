@@ -16,8 +16,18 @@ class FileService extends Service {
     if (!fs.existsSync(outputDir)) {
       await mkdirp(outputDir);
     }
-    const writeStream = fstream.Writer(outputDir);
-    fileStream.pipe(unzip.Parse()).pipe(writeStream);
+    // const writeStream = fstream.Writer(outputDir);
+    fileStream
+      .pipe(unzip.Parse())
+      .on('entry', entry => {
+        const { type, path: fileName } = entry;
+        console.log(fileName);
+        if (type === 'Directory' || fileName.endsWith('/')) {
+          mkdirp(path.join(outputDir, fileName));
+        } else {
+          entry.pipe(fs.createWriteStream(path.join(outputDir, fileName)))
+        }
+      });
     await new Promise((resolve, reject) => {
       fileStream.on('end', resolve);
       fileStream.on('error', reject);
