@@ -8,6 +8,8 @@ const unzipper = require('unzipper');
 const asar = require('asar');
 const { fsGetter, EasyAsar } = require('asar-async');
 const { index: asarIndexSymbol } = require('asar-async/dist/base');
+const { v1: uuidv1 } = require('uuid');
+const xml2js = require('xml2js');
 
 class FileService extends Service {
   async convertEpubToAsar(fileStream, destFileName) {
@@ -79,6 +81,18 @@ class FileService extends Service {
     const ar = new EasyAsar(fsGetter(asarFile));
     await ar.fetchIndex();
     return ar[asarIndexSymbol];
+  }
+
+  async saveEpubFile(fileStream) {
+    const { ctx } = this;
+    const { model, service, helper } = ctx;
+    const bookFileName = uuidv1();
+    await service.file.convertEpubToAsar(fileStream, bookFileName);
+    const container = await service.file.readAsarFile(helper.asarFileDir(bookFileName), 'META-INF/container.xml');
+    const xmlObj = await xml2js.parseStringPromise(container.toString('utf8'));
+    const contentPath = xmlObj.container.rootfiles[0].rootfile[0].$['full-path'];
+    const contentBuffer = await service.file.readAsarFile(helper.asarFileDir(bookFileName), contentPath);
+    const content = await xml2js.parseStringPromise(contentBuffer.toString('utf8'));
   }
 }
 
