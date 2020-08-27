@@ -10,8 +10,7 @@ class BookController extends Controller {
     ctx.body = helper.createSuccessResp(res);
   }
   async create() {
-    const { ctx } = this;
-    const { model, helper, session } = ctx;
+    //
   }
 }
 

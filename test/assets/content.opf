@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="2.0" unique-identifier="bookid">
+  <metadata>
+    <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/" id="bookid">urn:isbn:9780596158736</dc:identifier>
+    <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">JavaScript: The Good Parts</dc:title>
+    <dc:rights xmlns:dc="http://purl.org/dc/elements/1.1/">Copyright © 2008 Yahoo! Inc.</dc:rights>
+    <dc:publisher xmlns:dc="http://purl.org/dc/elements/1.1/">Yahoo Press</dc:publisher>
+    <dc:subject xmlns:dc="http://purl.org/dc/elements/1.1/">COMPUTERS / Programming Languages / JavaScript</dc:subject>
+    <dc:date xmlns:dc="http://purl.org/dc/elements/1.1/">2008-12-17</dc:date>
+    <dc:description xmlns:dc="http://purl.org/dc/elements/1.1/">&lt;p&gt;Most programming languages contain good and bad parts, but JavaScript has more than its share of the bad, having been developed and released in a hurry before it could be refined. This authoritative book scrapes away these bad features to reveal a subset of JavaScript that's more reliable, readable, and maintainable than the language as a whole-a subset you can use to create truly extensible and efficient code.&lt;/p&gt;</dc:description>
+    <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf" opf:file-as="Douglas Crockford">Douglas Crockford</dc:creator>
+    <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">en</dc:language>
+    <meta name="cover" content="cover-image"/>
+  </metadata>
+  <manifest>
+    <item id="ncxtoc" media-type="application/x-dtbncx+xml" href="toc.ncx"/>
+    <item media-type="text/css" id="css" href="core.css"/>
+    <item id="cover" href="cover.html" media-type="application/xhtml+xml"/>
+    <item id="epub.embedded.font.1" href="DejaVuSansMono.otf" media-type="font/opentype"/>
+    <item id="epub.embedded.font.2" href="DejaVuSansMono-Bold.otf" media-type="font/opentype"/>
+    <item id="epub.embedded.font.3" href="DejaVuSansMono-BoldOblique.otf" media-type="font/opentype"/>
+    <item id="epub.embedded.font.4" href="DejaVuSansMono-Oblique.otf" media-type="font/opentype"/>
+    <item id="epub.embedded.font.5" href="DejaVuSerif.otf" media-type="font/opentype"/>
+    <item id="epub.embedded.font.6" href="DejaVuSerif-Bold.otf" media-type="font/opentype"/>
+    <item id="epub.embedded.font.7" href="DejaVuSerif-BoldItalic.otf" media-type="font/opentype"/>
+    <item id="epub.embedded.font.8" href="DejaVuSerif-Italic.otf" media-type="font/opentype"/>
+    <item id="id2992006" href="index.html" media-type="application/xhtml+xml"/>
+    <item id="cover-image" href="httpatomoreillycomsourceoreillyimages206240.jpg" media-type="image/jpeg"/>
+    <item id="id3062043" href="oreilly_large.gif" media-type="image/gif"/>
+    <item id="id3003312" href="examples_page.html" media-type="application/xhtml+xml"/>
+    <item id="id2904115" href="pr02.html" media-type="application/xhtml+xml"/>
+    <item id="id2985464" href="pr02s02.html" media-type="application/xhtml+xml"/>
+    <item id="id2979607" href="pr02s03.html" media-type="application/xhtml+xml"/>
+    <item id="id3080160" href="pr02s04.html" media-type="application/xhtml+xml"/>
+    <item id="id2996864" href="pr02s05.html" media-type="application/xhtml+xml"/>
+    <item id="id3079468" href="ch01.html" media-type="application/xhtml+xml"/>
+    <item id="id3079615" href="ch01s02.html" media-type="application/xhtml+xml"/>
+    <item id="id3031753" href="ch01s03.html" media-type="application/xhtml+xml"/>
+    <item id="id2984313" href="ch02.html" media-type="application/xhtml+xml"/>
+    <item id="id3010470" href="httpatomoreillycomsourceoreillyimages238840.png" media-type="image/png"/>
+    <item id="id3079826" href="ch02s02.html" media-type="application/xhtml+xml"/>
+    <item id="id3079905" href="httpatomoreillycomsourceoreillyimages238860.png" media-type="image/png"/>
+    <item id="id3079978" href="ch02s03.html" media-type="application/xhtml+xml"/>
+    <item id="id3080010" href="httpatomoreillycomsourceoreillyimages238808.png" media-type="image/png"/>
+    <item id="id3081165" href="httpatomoreillycomsourceoreillyimages238698.png" media-type="image/png"/>
+    <item id="id3081200" href="httpatomoreillycomsourceoreillyimages238748.png" media-type="image/png"/>
+    <item id="id3081235" href="httpatomoreillycomsourceoreillyimages238796.png" media-type="image/png"/>
+    <item id="id3081417" href="ch02s04.html" media-type="application/xhtml+xml"/>
+    <item id="id3081449" href="httpatomoreillycomsourceoreillyimages238778.png" media-type="image/png"/>
+    <item id="id3081670" href="httpatomoreillycomsourceoreillyimages238728.png" media-type="image/png"/>
+    <item id="id3081784" href="ch02s05.html" media-type="application/xhtml+xml"/>
+    <item id="id3091043" href="httpatomoreillycomsourceoreillyimages238784.png" media-type="image/png"/>
+    <item id="id3091440" href="httpatomoreillycomsourceoreillyimages238750.png" media-type="image/png"/>
+    <item id="id3091558" href="httpatomoreillycomsourceoreillyimages238802.png" media-type="image/png"/>
+    <item id="id3091656" href="httpatomoreillycomsourceoreillyimages238768.png" media-type="image/png"/>
+    <item id="id3091739" href="httpatomoreillycomsourceoreillyimages238844.png" media-type="image/png"/>
+    <item id="id3091925" href="httpatomoreillycomsourceoreillyimages238732.png" media-type="image/png"/>
+    <item id="id3092026" href="httpatomoreillycomsourceoreillyimages238692.png" media-type="image/png"/>
+    <item id="id3092098" href="httpatomoreillycomsourceoreillyimages238700.png" media-type="image/png"/>
+    <item id="id3092188" href="httpatomoreillycomsourceoreillyimages238774.png" media-type="image/png"/>
+    <item id="id3092316" href="httpatomoreillycomsourceoreillyimages238830.png" media-type="image/png"/>
+    <item id="id3092380" href="httpatomoreillycomsourceoreillyimages238804.png" media-type="image/png"/>
+    <item id="id3092447" href="httpatomoreillycomsourceoreillyimages238810.png" media-type="image/png"/>
+    <item id="id3092549" href="httpatomoreillycomsourceoreillyimages238694.png" media-type="image/png"/>
+    <item id="id3092618" href="httpatomoreillycomsourceoreillyimages238696.png" media-type="image/png"/>
+    <item id="id3092737" href="httpatomoreillycomsourceoreillyimages238702.png" media-type="image/png"/>
+    <item id="id3092799" href="ch02s06.html" media-type="application/xhtml+xml"/>
+    <item id="id3092831" href="httpatomoreillycomsourceoreillyimages238846.png" media-type="image/png"/>
+    <item id="id3093559" href="httpatomoreillycomsourceoreillyimages238864.png" media-type="image/png"/>
+    <item id="id3093679" href="httpatomoreillycomsourceoreillyimages238798.png" media-type="image/png"/>
+    <item id="id3093757" href="httpatomoreillycomsourceoreillyimages238720.png" media-type="image/png"/>
+    <item id="id3093814" href="httpatomoreillycomsourceoreillyimages238832.png" media-type="image/png"/>
+    <item id="id3093831" href="ch02s07.html" media-type="application/xhtml+xml"/>
+    <item id="id3093863" href="httpatomoreillycomsourceoreillyimages238752.png" media-type="image/png"/>
+    <item id="id3093898" href="httpatomoreillycomsourceoreillyimages238794.png" media-type="image/png"/>
+    <item id="id3093988" href="httpatomoreillycomsourceoreillyimages238820.png" media-type="image/png"/>
+    <item id="id3094042" href="httpatomoreillycomsourceoreillyimages238738.png" media-type="image/png"/>
+    <item id="id3094061" href="ch02s08.html" media-type="application/xhtml+xml"/>
+    <item id="id3094093" href="httpatomoreillycomsourceoreillyimages238730.png" media-type="image/png"/>
+    <item id="id3094128" href="httpatomoreillycomsourceoreillyimages238780.png" media-type="image/png"/>
+    <item id="id3094163" href="httpatomoreillycomsourceoreillyimages238848.png" media-type="image/png"/>
+    <item id="id3094211" href="ch03.html" media-type="application/xhtml+xml"/>
+    <item id="id3094444" href="ch03s02.html" media-type="application/xhtml+xml"/>
+    <item id="id3094634" href="ch03s03.html" media-type="application/xhtml+xml"/>
+    <item id="id3094695" href="ch03s04.html" media-type="application/xhtml+xml"/>
+    <item id="id3094733" href="ch03s05.html" media-type="application/xhtml+xml"/>
+    <item id="id3094936" href="ch03s06.html" media-type="application/xhtml+xml"/>
+    <item id="id3095084" href="ch03s07.html" media-type="application/xhtml+xml"/>
+    <item id="id3095249" href="ch03s08.html" media-type="application/xhtml+xml"/>
+    <item id="id3095300" href="ch03s09.html" media-type="application/xhtml+xml"/>
+    <item id="id3095390" href="ch04.html" media-type="application/xhtml+xml"/>
+    <item id="id3095539" href="ch04s02.html" media-type="application/xhtml+xml"/>
+    <item id="id3095651" href="ch04s03.html" media-type="application/xhtml+xml"/>
+    <item id="id3096300" href="ch04s04.html" media-type="application/xhtml+xml"/>
+    <item id="id3096423" href="ch04s05.html" media-type="application/xhtml+xml"/>
+    <item id="id3096510" href="ch04s06.html" media-type="application/xhtml+xml"/>
+    <item id="id3096687" href="ch04s07.html" media-type="application/xhtml+xml"/>
+    <item id="id3096922" href="ch04s08.html" media-type="application/xhtml+xml"/>
+    <item id="id3097244" href="ch04s09.html" media-type="application/xhtml+xml"/>
+    <item id="id3097352" href="ch04s10.html" media-type="application/xhtml+xml"/>
+    <item id="id3097917" href="ch04s11.html" media-type="application/xhtml+xml"/>
+    <item id="id3098029" href="ch04s12.html" media-type="application/xhtml+xml"/>
+    <item id="id3098303" href="ch04s13.html" media-type="application/xhtml+xml"/>
+    <item id="id3098415" href="ch04s14.html" media-type="application/xhtml+xml"/>
+    <item id="id3098590" href="ch04s15.html" media-type="application/xhtml+xml"/>
+    <item id="id3098871" href="ch05.html" media-type="application/xhtml+xml"/>
+    <item id="id3099568" href="ch05s02.html" media-type="application/xhtml+xml"/>
+    <item id="id3099669" href="ch05s03.html" media-type="application/xhtml+xml"/>
+    <item id="id3099846" href="ch05s04.html" media-type="application/xhtml+xml"/>
+    <item id="id3100683" href="ch05s05.html" media-type="application/xhtml+xml"/>
+    <item id="id3100867" href="ch06.html" media-type="application/xhtml+xml"/>
+    <item id="id3101091" href="ch06s02.html" media-type="application/xhtml+xml"/>
+    <item id="id3101316" href="ch06s03.html" media-type="application/xhtml+xml"/>
+    <item id="id3101460" href="ch06s04.html" media-type="application/xhtml+xml"/>
+    <item id="id3101544" href="ch06s05.html" media-type="application/xhtml+xml"/>
+    <item id="id3101657" href="ch06s06.html" media-type="application/xhtml+xml"/>
+    <item id="id3101872" href="ch06s07.html" media-type="application/xhtml+xml"/>
+    <item id="id3102255" href="ch07.html" media-type="application/xhtml+xml"/>
+    <item id="id3102662" href="httpatomoreillycomsourceoreillyimages238822.png" media-type="image/png"/>
+    <item id="id3103217" href="httpatomoreillycomsourceoreillyimages238858.png" media-type="image/png"/>
+    <item id="id3103450" href="ch07s02.html" media-type="application/xhtml+xml"/>
+    <item id="id3103536" href="httpatomoreillycomsourceoreillyimages238776.png" media-type="image/png"/>
+    <item id="id3104084" href="ch07s03.html" media-type="application/xhtml+xml"/>
+    <item id="id3104154" href="httpatomoreillycomsourceoreillyimages238826.png" media-type="image/png"/>
+    <item id="id3104271" href="httpatomoreillycomsourceoreillyimages238722.png" media-type="image/png"/>
+    <item id="id3104348" href="httpatomoreillycomsourceoreillyimages238754.png" media-type="image/png"/>
+    <item id="id3104716" href="httpatomoreillycomsourceoreillyimages238782.png" media-type="image/png"/>
+    <item id="id3105051" href="httpatomoreillycomsourceoreillyimages238708.png" media-type="image/png"/>
+    <item id="id3105317" href="httpatomoreillycomsourceoreillyimages238834.png" media-type="image/png"/>
+    <item id="id3105563" href="httpatomoreillycomsourceoreillyimages238786.png" media-type="image/png"/>
+    <item id="id3105663" href="httpatomoreillycomsourceoreillyimages238862.png" media-type="image/png"/>
+    <item id="id3106684" href="ch08.html" media-type="application/xhtml+xml"/>
+    <item id="id3109836" href="httpatomoreillycomsourceoreillyimages238710.png" media-type="image/png"/>
+    <item id="id3109941" href="ch09.html" media-type="application/xhtml+xml"/>
+    <item id="id3110587" href="ch10.html" media-type="application/xhtml+xml"/>
+    <item id="id3110865" href="apa.html" media-type="application/xhtml+xml"/>
+    <item id="id3111052" href="apas02.html" media-type="application/xhtml+xml"/>
+    <item id="id3111104" href="apas03.html" media-type="application/xhtml+xml"/>
+    <item id="id3111211" href="apas04.html" media-type="application/xhtml+xml"/>
+    <item id="id3111313" href="apas05.html" media-type="application/xhtml+xml"/>
+    <item id="id3111361" href="apas06.html" media-type="application/xhtml+xml"/>
+    <item id="id3111517" href="apas07.html" media-type="application/xhtml+xml"/>
+    <item id="id3111641" href="apas08.html" media-type="application/xhtml+xml"/>
+    <item id="id3111672" href="apas09.html" media-type="application/xhtml+xml"/>
+    <item id="id3111728" href="apas10.html" media-type="application/xhtml+xml"/>
+    <item id="id3111942" href="apas11.html" media-type="application/xhtml+xml"/>
+    <item id="id3112044" href="apas12.html" media-type="application/xhtml+xml"/>
+    <item id="id3112434" href="apas13.html" media-type="application/xhtml+xml"/>
+    <item id="id3112532" href="apas14.html" media-type="application/xhtml+xml"/>
+    <item id="id3112705" href="apb.html" media-type="application/xhtml+xml"/>
+    <item id="id3112904" href="apbs02.html" media-type="application/xhtml+xml"/>
+    <item id="id3113037" href="apbs03.html" media-type="application/xhtml+xml"/>
+    <item id="id3113197" href="apbs04.html" media-type="application/xhtml+xml"/>
+    <item id="id3113327" href="apbs05.html" media-type="application/xhtml+xml"/>
+    <item id="id3113381" href="apbs06.html" media-type="application/xhtml+xml"/>
+    <item id="id3113498" href="apbs07.html" media-type="application/xhtml+xml"/>
+    <item id="id3113654" href="apbs08.html" media-type="application/xhtml+xml"/>
+    <item id="id3113733" href="apbs09.html" media-type="application/xhtml+xml"/>
+    <item id="id3113920" href="apbs10.html" media-type="application/xhtml+xml"/>
+    <item id="id3114065" href="apbs11.html" media-type="application/xhtml+xml"/>
+    <item id="id3114145" href="apbs12.html" media-type="application/xhtml+xml"/>
+    <item id="id3114210" href="apc.html" media-type="application/xhtml+xml"/>
+    <item id="id3114563" href="apcs02.html" media-type="application/xhtml+xml"/>
+    <item id="id3114629" href="apcs03.html" media-type="application/xhtml+xml"/>
+    <item id="id3115644" href="httpatomoreillycomsourceoreillyimages238866.png" media-type="image/png"/>
+    <item id="id3115679" href="httpatomoreillycomsourceoreillyimages238734.png" media-type="image/png"/>
+    <item id="id3115690" href="apcs04.html" media-type="application/xhtml+xml"/>
+    <item id="id3115844" href="apcs05.html" media-type="application/xhtml+xml"/>
+    <item id="id3115913" href="apcs06.html" media-type="application/xhtml+xml"/>
+    <item id="id3116013" href="apcs07.html" media-type="application/xhtml+xml"/>
+    <item id="id3116107" href="apcs08.html" media-type="application/xhtml+xml"/>
+    <item id="id3116190" href="apcs09.html" media-type="application/xhtml+xml"/>
+    <item id="id3116305" href="apcs10.html" media-type="application/xhtml+xml"/>
+    <item id="id3116363" href="apcs11.html" media-type="application/xhtml+xml"/>
+    <item id="id3116406" href="apcs12.html" media-type="application/xhtml+xml"/>
+    <item id="id3116506" href="apcs13.html" media-type="application/xhtml+xml"/>
+    <item id="id3116665" href="apcs14.html" media-type="application/xhtml+xml"/>
+    <item id="id3116734" href="apcs15.html" media-type="application/xhtml+xml"/>
+    <item id="id3116885" href="apcs16.html" media-type="application/xhtml+xml"/>
+    <item id="id3117240" href="apcs17.html" media-type="application/xhtml+xml"/>
+    <item id="id3117292" href="apcs18.html" media-type="application/xhtml+xml"/>
+    <item id="id3117352" href="apcs19.html" media-type="application/xhtml+xml"/>
+    <item id="id3117386" href="apcs20.html" media-type="application/xhtml+xml"/>
+    <item id="id3117435" href="apcs21.html" media-type="application/xhtml+xml"/>
+    <item id="id3117480" href="apcs22.html" media-type="application/xhtml+xml"/>
+    <item id="id3117587" href="apcs23.html" media-type="application/xhtml+xml"/>
+    <item id="id3117637" href="apcs24.html" media-type="application/xhtml+xml"/>
+    <item id="id3117779" href="apcs25.html" media-type="application/xhtml+xml"/>
+    <item id="id3117815" href="apcs26.html" media-type="application/xhtml+xml"/>
+    <item id="id3117958" href="apcs27.html" media-type="application/xhtml+xml"/>
+    <item id="id3118010" href="apcs28.html" media-type="application/xhtml+xml"/>
+    <item id="id3118130" href="apd.html" media-type="application/xhtml+xml"/>
+    <item id="id3118177" href="httpatomoreillycomsourceoreillyimages238724.png" media-type="image/png"/>
+    <item id="id3118213" href="httpatomoreillycomsourceoreillyimages238770.png" media-type="image/png"/>
+    <item id="id3118248" href="httpatomoreillycomsourceoreillyimages238828.png" media-type="image/png"/>
+    <item id="id3118284" href="httpatomoreillycomsourceoreillyimages238704.png" media-type="image/png"/>
+    <item id="id3118319" href="httpatomoreillycomsourceoreillyimages238756.png" media-type="image/png"/>
+    <item id="id3118355" href="httpatomoreillycomsourceoreillyimages238800.png" media-type="image/png"/>
+    <item id="id3118390" href="httpatomoreillycomsourceoreillyimages238856.png" media-type="image/png"/>
+    <item id="id3118426" href="httpatomoreillycomsourceoreillyimages238726.png" media-type="image/png"/>
+    <item id="id3118461" href="httpatomoreillycomsourceoreillyimages238772.png" media-type="image/png"/>
+    <item id="id3118497" href="httpatomoreillycomsourceoreillyimages30584.png" media-type="image/png"/>
+    <item id="id3118532" href="httpatomoreillycomsourceoreillyimages30586.png" media-type="image/png"/>
+    <item id="id3118568" href="httpatomoreillycomsourceoreillyimages238758.png" media-type="image/png"/>
+    <item id="id3118603" href="httpatomoreillycomsourceoreillyimages238812.png" media-type="image/png"/>
+    <item id="id3118638" href="httpatomoreillycomsourceoreillyimages238868.png" media-type="image/png"/>
+    <item id="id3118674" href="httpatomoreillycomsourceoreillyimages238736.png" media-type="image/png"/>
+    <item id="id3118709" href="httpatomoreillycomsourceoreillyimages238842.png" media-type="image/png"/>
+    <item id="id3118745" href="httpatomoreillycomsourceoreillyimages238706.png" media-type="image/png"/>
+    <item id="id3118780" href="httpatomoreillycomsourceoreillyimages238766.png" media-type="image/png"/>
+    <item id="id3118816" href="httpatomoreillycomsourceoreillyimages238806.png" media-type="image/png"/>
+    <item id="id3118851" href="httpatomoreillycomsourceoreillyimages238690.png" media-type="image/png"/>
+    <item id="id3118887" href="httpatomoreillycomsourceoreillyimages30606.png" media-type="image/png"/>
+    <item id="id3118922" href="httpatomoreillycomsourceoreillyimages30608.png" media-type="image/png"/>
+    <item id="id3118958" href="httpatomoreillycomsourceoreillyimages238854.png" media-type="image/png"/>
+    <item id="id3118993" href="httpatomoreillycomsourceoreillyimages238718.png" media-type="image/png"/>
+    <item id="id3119029" href="httpatomoreillycomsourceoreillyimages238764.png" media-type="image/png"/>
+    <item id="id3119064" href="httpatomoreillycomsourceoreillyimages238818.png" media-type="image/png"/>
+    <item id="id3119100" href="httpatomoreillycomsourceoreillyimages238688.png" media-type="image/png"/>
+    <item id="id3119135" href="httpatomoreillycomsourceoreillyimages238746.png" media-type="image/png"/>
+    <item id="id3119170" href="httpatomoreillycomsourceoreillyimages238792.png" media-type="image/png"/>
+    <item id="id3119206" href="httpatomoreillycomsourceoreillyimages238838.png" media-type="image/png"/>
+    <item id="id3119241" href="httpatomoreillycomsourceoreillyimages238716.png" media-type="image/png"/>
+    <item id="id3119277" href="httpatomoreillycomsourceoreillyimages238790.png" media-type="image/png"/>
+    <item id="id3119312" href="httpatomoreillycomsourceoreillyimages238852.png" media-type="image/png"/>
+    <item id="id3119348" href="httpatomoreillycomsourceoreillyimages238714.png" media-type="image/png"/>
+    <item id="id3119383" href="httpatomoreillycomsourceoreillyimages238762.png" media-type="image/png"/>
+    <item id="id3119419" href="httpatomoreillycomsourceoreillyimages238816.png" media-type="image/png"/>
+    <item id="id3119454" href="httpatomoreillycomsourceoreillyimages238686.png" media-type="image/png"/>
+    <item id="id3119490" href="httpatomoreillycomsourceoreillyimages238744.png" media-type="image/png"/>
+    <item id="id3119525" href="httpatomoreillycomsourceoreillyimages238788.png" media-type="image/png"/>
+    <item id="id3119561" href="httpatomoreillycomsourceoreillyimages238836.png" media-type="image/png"/>
+    <item id="id3119596" href="httpatomoreillycomsourceoreillyimages238712.png" media-type="image/png"/>
+    <item id="id3119632" href="httpatomoreillycomsourceoreillyimages238760.png" media-type="image/png"/>
+    <item id="id3119667" href="httpatomoreillycomsourceoreillyimages30650.png" media-type="image/png"/>
+    <item id="id3119678" href="ape.html" media-type="application/xhtml+xml"/>
+    <item id="id3119874" href="httpatomoreillycomsourceoreillyimages238742.png" media-type="image/png"/>
+    <item id="id3119934" href="httpatomoreillycomsourceoreillyimages238850.png" media-type="image/png"/>
+    <item id="id3119977" href="httpatomoreillycomsourceoreillyimages238740.png" media-type="image/png"/>
+    <item id="id3120069" href="httpatomoreillycomsourceoreillyimages238824.png" media-type="image/png"/>
+    <item id="id3120126" href="httpatomoreillycomsourceoreillyimages238814.png" media-type="image/png"/>
+    <item id="id3120163" href="apes02.html" media-type="application/xhtml+xml"/>
+    <item id="id3120417" href="apes03.html" media-type="application/xhtml+xml"/>
+    <item id="id3120723" href="ix01.html" media-type="application/xhtml+xml"/>
+    <item id="id3120736" href="author_bios.html" media-type="application/xhtml+xml"/>
+    <item id="id3120752" href="co02.html" media-type="application/xhtml+xml"/>
+  </manifest>
+  <spine toc="ncxtoc">
+    <itemref idref="cover" linear="no"/>
+    <itemref idref="id2992006"/>
+    <itemref idref="id3003312"/>
+    <itemref idref="id2904115"/>
+    <itemref idref="id2985464"/>
+    <itemref idref="id2979607"/>
+    <itemref idref="id3080160"/>
+    <itemref idref="id2996864"/>
+    <itemref idref="id3079468"/>
+    <itemref idref="id3079615"/>
+    <itemref idref="id3031753"/>
+    <itemref idref="id2984313"/>
+    <itemref idref="id3079826"/>
+    <itemref idref="id3079978"/>
+    <itemref idref="id3081417"/>
+    <itemref idref="id3081784"/>
+    <itemref idref="id3092799"/>
+    <itemref idref="id3093831"/>
+    <itemref idref="id3094061"/>
+    <itemref idref="id3094211"/>
+    <itemref idref="id3094444"/>
+    <itemref idref="id3094634"/>
+    <itemref idref="id3094695"/>
+    <itemref idref="id3094733"/>
+    <itemref idref="id3094936"/>
+    <itemref idref="id3095084"/>
+    <itemref idref="id3095249"/>
+    <itemref idref="id3095300"/>
+    <itemref idref="id3095390"/>
+    <itemref idref="id3095539"/>
+    <itemref idref="id3095651"/>
+    <itemref idref="id3096300"/>
+    <itemref idref="id3096423"/>
+    <itemref idref="id3096510"/>
+    <itemref idref="id3096687"/>
+    <itemref idref="id3096922"/>
+    <itemref idref="id3097244"/>
+    <itemref idref="id3097352"/>
+    <itemref idref="id3097917"/>
+    <itemref idref="id3098029"/>
+    <itemref idref="id3098303"/>
+    <itemref idref="id3098415"/>
+    <itemref idref="id3098590"/>
+    <itemref idref="id3098871"/>
+    <itemref idref="id3099568"/>
+    <itemref idref="id3099669"/>
+    <itemref idref="id3099846"/>
+    <itemref idref="id3100683"/>
+    <itemref idref="id3100867"/>
+    <itemref idref="id3101091"/>
+    <itemref idref="id3101316"/>
+    <itemref idref="id3101460"/>
+    <itemref idref="id3101544"/>
+    <itemref idref="id3101657"/>
+    <itemref idref="id3101872"/>
+    <itemref idref="id3102255"/>
+    <itemref idref="id3103450"/>
+    <itemref idref="id3104084"/>
+    <itemref idref="id3106684"/>
+    <itemref idref="id3109941"/>
+    <itemref idref="id3110587"/>
+    <itemref idref="id3110865"/>
+    <itemref idref="id3111052"/>
+    <itemref idref="id3111104"/>
+    <itemref idref="id3111211"/>
+    <itemref idref="id3111313"/>
+    <itemref idref="id3111361"/>
+    <itemref idref="id3111517"/>
+    <itemref idref="id3111641"/>
+    <itemref idref="id3111672"/>
+    <itemref idref="id3111728"/>
+    <itemref idref="id3111942"/>
+    <itemref idref="id3112044"/>
+    <itemref idref="id3112434"/>
+    <itemref idref="id3112532"/>
+    <itemref idref="id3112705"/>
+    <itemref idref="id3112904"/>
+    <itemref idref="id3113037"/>
+    <itemref idref="id3113197"/>
+    <itemref idref="id3113327"/>
+    <itemref idref="id3113381"/>
+    <itemref idref="id3113498"/>
+    <itemref idref="id3113654"/>
+    <itemref idref="id3113733"/>
+    <itemref idref="id3113920"/>
+    <itemref idref="id3114065"/>
+    <itemref idref="id3114145"/>
+    <itemref idref="id3114210"/>
+    <itemref idref="id3114563"/>
+    <itemref idref="id3114629"/>
+    <itemref idref="id3115690"/>
+    <itemref idref="id3115844"/>
+    <itemref idref="id3115913"/>
+    <itemref idref="id3116013"/>
+    <itemref idref="id3116107"/>
+    <itemref idref="id3116190"/>
+    <itemref idref="id3116305"/>
+    <itemref idref="id3116363"/>
+    <itemref idref="id3116406"/>
+    <itemref idref="id3116506"/>
+    <itemref idref="id3116665"/>
+    <itemref idref="id3116734"/>
+    <itemref idref="id3116885"/>
+    <itemref idref="id3117240"/>
+    <itemref idref="id3117292"/>
+    <itemref idref="id3117352"/>
+    <itemref idref="id3117386"/>
+    <itemref idref="id3117435"/>
+    <itemref idref="id3117480"/>
+    <itemref idref="id3117587"/>
+    <itemref idref="id3117637"/>
+    <itemref idref="id3117779"/>
+    <itemref idref="id3117815"/>
+    <itemref idref="id3117958"/>
+    <itemref idref="id3118010"/>
+    <itemref idref="id3118130"/>
+    <itemref idref="id3119678"/>
+    <itemref idref="id3120163"/>
+    <itemref idref="id3120417"/>
+    <itemref idref="id3120723"/>
+    <itemref idref="id3120736"/>
+    <itemref idref="id3120752"/>
+  </spine>
+  <guide>
+    <reference href="cover.html" type="cover" title="Cover"/>
+  </guide>
+</package>

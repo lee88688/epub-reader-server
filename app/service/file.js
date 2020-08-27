@@ -85,7 +85,7 @@ class FileService extends Service {
 
   async saveEpubFile(fileStream) {
     const { ctx } = this;
-    const { model, service, helper } = ctx;
+    const { model, service, helper, session } = ctx;
     const bookFileName = uuidv1();
     await service.file.convertEpubToAsar(fileStream, bookFileName);
     const container = await service.file.readAsarFile(helper.asarFileDir(bookFileName), 'META-INF/container.xml');
@@ -93,6 +93,14 @@ class FileService extends Service {
     const contentPath = xmlObj.container.rootfiles[0].rootfile[0].$['full-path'];
     const contentBuffer = await service.file.readAsarFile(helper.asarFileDir(bookFileName), contentPath);
     const content = await xml2js.parseStringPromise(contentBuffer.toString('utf8'));
+    const book = new model.Book({
+      fileName: bookFileName,
+      user: session.user._id,
+      content,
+    });
+    book.fillInBaseInfo();
+    await book.save();
+    return book;
   }
 }
 
