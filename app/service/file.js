@@ -14,7 +14,7 @@ const xml2js = require('xml2js');
 class FileService extends Service {
   async convertEpubToAsar(fileStream, destFileName) {
     const { app } = this.ctx;
-    const outputDir = path.join(app.config.tempDir, fileStream.fileName || 'epub');
+    const outputDir = path.join(app.config.tempDir, fileStream.filename || 'epub');
     if (!fs.existsSync(outputDir)) {
       await mkdirp(outputDir);
     }

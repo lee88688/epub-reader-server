@@ -19,7 +19,7 @@ describe('file service test', () => {
     const ctx = app.mockContext();
     const epubDir = path.join(app.config.baseDir, 'test/assets/sample1.epub');
     const readStream = fs.createReadStream(epubDir);
-    readStream.fileName = fileName;
+    readStream.filename = fileName;
     await ctx.service.file.convertEpubToAsar(readStream, fileName);
     assert(fs.existsSync(asarDir));
   });
