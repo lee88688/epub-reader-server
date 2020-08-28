@@ -96,7 +96,7 @@ class FileService extends Service {
     const book = new model.Book({
       fileName: bookFileName,
       user: session.user._id,
-      content,
+      content: JSON.stringify(content),
     });
     book.fillInBaseInfo();
     await book.save();

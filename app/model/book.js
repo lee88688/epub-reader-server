@@ -8,10 +8,27 @@ module.exports = app => {
     cover: String,
     fileName: String,
     user: Schema.Types.ObjectId,
-    content: Schema.Types.Mixed, // use to store object parsed from xml
+    // use to json string parsed from xml
+    content: {
+      type: String,
+      set(v) {
+        if (!v) return v;
+        if (typeof v === 'string') {
+          this._contentObject = JSON.parse(v);
+          return v;
+        }
+        app.logger.info('Book content is recommended to be a String.');
+        const jsonStr = JSON.stringify(v);
+        this._contentObject = v;
+        return jsonStr;
+      },
+    },
+  });
+  bookSchema.virtual('contentObject').get(function() {
+    return this._contentObject || {};
   });
   bookSchema.virtual('contentMetadata').get(function() {
-    const { content: { package: p } = {} } = this;
+    const { contentObject: { package: p } = {} } = this;
     if (!p) return {};
     return p.metadata[0];
   });
@@ -49,7 +66,7 @@ module.exports = app => {
    * @param {String} id manifest id
    */
   bookSchema.methods.getManifestItemFromId = function(id) {
-    const { content: { package: p } = {} } = this;
+    const { contentObject: { package: p } = {} } = this;
     if (!p) return {};
     const manifest = p.manifest[0];
     const items = manifest.item || [];

@@ -38,8 +38,8 @@ describe('save epub file service test', () => {
     // delete user and book
     const ctx = app.mockContext();
     const { model, helper } = ctx;
-    const user = model.User.findOne({ email: mockUser.email });
-    const book = model.Book.findOne({ user: user._id });
+    const user = await model.User.findOne({ email: mockUser.email });
+    const book = await model.Book.findOne({ user: user._id });
     await new Promise(resolve => {
       const outputDir = path.join(app.config.tempDir, fileName);
       rimraf(outputDir, resolve);

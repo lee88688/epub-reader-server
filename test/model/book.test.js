@@ -13,7 +13,7 @@ describe('test/model/book.test.js', () => {
     book = new model.Book({ fileName: 'test' });
     const data = await fs.promises.readFile(path.join(app.config.baseDir, 'test/assets/content.opf'));
     const content = await xml2js.parseStringPromise(data.toString('utf8'));
-    book.content = content;
+    book.content = JSON.stringify(content);
   });
   it('metadata', () => {
     // eslint-disable-next-line no-script-url
