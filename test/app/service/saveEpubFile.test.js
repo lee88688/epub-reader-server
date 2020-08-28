@@ -1,6 +1,6 @@
 'use strict';
 
-const { app, assert } = require('egg-mock/bootstrap');
+const { app, assert, mock } = require('egg-mock/bootstrap');
 const Mock = require('mockjs');
 const fs = require('fs');
 const path = require('path');
@@ -25,13 +25,15 @@ describe('save epub file service test', () => {
   it('saveEpubFile', async () => {
     const user = await app.mongoose.model('User').findOne({ email: mockUser.email });
     assert(user);
-    const ctx = app.mockContext({ session: { user } });
+    app.mockSession({ user });
+    const ctx = app.mockContext();
     const epubDir = path.join(app.config.baseDir, 'test/assets/sample1.epub');
     const fileStream = fs.createReadStream(epubDir);
-    fileStream.fileName = fileName;
+    fileStream.filename = fileName;
     const book = await ctx.service.file.saveEpubFile(fileStream);
     assert(book.user === user._id); // fixme: whether to use toString function to compare
     assert(fs.existsSync(ctx.helper.asarFileDir(book.fileName)));
+    mock.restore();
   });
 
   after(async () => {
@@ -40,8 +42,9 @@ describe('save epub file service test', () => {
     const { model, helper } = ctx;
     const user = await model.User.findOne({ email: mockUser.email });
     const book = await model.Book.findOne({ user: user._id });
-    await new Promise(resolve => {
+    await new Promise(async resolve => {
       const outputDir = path.join(app.config.tempDir, fileName);
+      assert(fs.existsSync(outputDir));
       rimraf(outputDir, resolve);
     });
     await new Promise(resolve => {
