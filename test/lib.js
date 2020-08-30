@@ -2,13 +2,13 @@
 
 const Mock = require('mockjs');
 
-function mockNewUser(number) {
+function mockNewUser(number = 1) {
   const users = Mock.mock({
-    [`data|${number}`]: {
+    [`data|${number}`]: [{
       name: '@name',
-      email: '@emial',
+      email: '@email',
       password: '@id',
-    },
+    }],
   });
   return users.data;
 }

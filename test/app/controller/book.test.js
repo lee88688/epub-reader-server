@@ -20,16 +20,30 @@ describe('app/controller/book.test.js', async () => {
     const fileName = 'sample1.epub';
     app.mockCsrf();
     const fileDir = path.join(app.baseDir, `test/assets/${fileName}`);
-    const res = await app.httpRequest()
+    await app.httpRequest()
       .post('/api/book')
       .type('form')
       .attach(fileName, fileDir)
       .expect(200);
     const ctx = app.mockContext();
     const { model, session, helper } = ctx;
-    const book = model.Book.findOne({ user: session.user._id });
+    const book = await model.Book.findOne({ user: session.user._id });
     assert(book);
     assert(fs.existsSync(helper.asarFileDir(book.fileName)));
+  });
+
+  it('remove book', async () => {
+    const ctx = app.mockContext();
+    const { model, session, helper } = ctx;
+    // fixme: session user is undefined
+    const book = await model.Book.findOne({ user: session.user._id });
+    app.mockCsrf();
+    await app.httpRequest()
+      .delete(`/api/book/${book._id}`)
+      .expect(200);
+    assert(!fs.existsSync(helper.asarFileDir(book.fileName)));
+    const delBook = await model.Book.findOne({ user: session.user._id });
+    assert(!delBook);
   });
 
   after(async () => {

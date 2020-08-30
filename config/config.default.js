@@ -20,6 +20,11 @@ module.exports = appInfo => {
   // add your middleware config here
   config.middleware = [];
 
+  // add file extension
+  config.multipart = {
+    fileExtensions: [ '.epub' ], // 增加对 epub 扩展名的文件支持
+  };
+
   // add your user config here
   const userConfig = {
     tempDir: path.join(appInfo.root, 'temp'),
