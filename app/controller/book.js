@@ -3,6 +3,8 @@
 const { Controller } = require('egg');
 const sendToWormhole = require('stream-wormhole');
 const fs = require('fs');
+const path = require('path');
+const rimraf = require('rimraf');
 
 class BookController extends Controller {
   async index() {
@@ -22,13 +24,21 @@ class BookController extends Controller {
       sendToWormhole(fileSteam);
       throw e;
     }
-    // todo: add removing temporary folder
+    // todo: deal with rimfaf errors. use individual service to remove folder.
+    await new Promise(resolve => {
+      const { filename } = fileSteam;
+      rimraf(path.join(ctx.app.config.tempDir, filename), resolve);
+    });
     ctx.body = ctx.helper.createSuccessResp(null);
   }
   async destroy() {
     const { ctx } = this;
-    const { model, helper, app: { mongoose } } = ctx;
-    const book = await model.Book.findOne({ _id: mongoose.Types.ObjectId(ctx.params.id) });
+    const { model, helper, session, app: { mongoose } } = ctx;
+    const book = await model.Book.findOne({ _id: mongoose.Types.ObjectId(ctx.params.id), user: session.user._id });
+    if (!book) {
+      ctx.body = helper.createFailResp('book id is not found.');
+      return;
+    }
     await fs.promises.unlink(helper.asarFileDir(book.fileName));
     await model.Book.deleteOne({ _id: mongoose.Types.ObjectId(ctx.params.id) });
     ctx.body = helper.createSuccessResp(null);

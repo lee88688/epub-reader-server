@@ -13,6 +13,11 @@ describe('app/controller/book.test.js', async () => {
     const { model } = ctx;
     const user = new model.User(mockUser);
     await user.save();
+  });
+
+  beforeEach(async () => {
+    const { mongoose } = app;
+    const user = await mongoose.model('User').findOne({ email: mockUser.email });
     app.mockSession({ user });
   });
 
@@ -35,7 +40,6 @@ describe('app/controller/book.test.js', async () => {
   it('remove book', async () => {
     const ctx = app.mockContext();
     const { model, session, helper } = ctx;
-    // fixme: session user is undefined
     const book = await model.Book.findOne({ user: session.user._id });
     app.mockCsrf();
     await app.httpRequest()

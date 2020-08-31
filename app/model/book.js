@@ -7,7 +7,10 @@ module.exports = app => {
     description: String,
     cover: String,
     fileName: String,
-    user: Schema.Types.ObjectId,
+    user: {
+      type: Schema.Types.ObjectId,
+      required: true,
+    },
     // use to json string parsed from xml
     content: {
       type: String,
