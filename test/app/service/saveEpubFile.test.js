@@ -31,7 +31,7 @@ describe('save epub file service test', () => {
     const fileStream = fs.createReadStream(epubDir);
     fileStream.filename = fileName;
     const book = await ctx.service.file.saveEpubFile(fileStream);
-    assert(book.user === user._id); // fixme: whether to use toString function to compare
+    assert(book.user.toString() === user._id.toString()); // fixme: whether to use toString function to compare
     assert(fs.existsSync(ctx.helper.asarFileDir(book.fileName)));
     mock.restore();
   });

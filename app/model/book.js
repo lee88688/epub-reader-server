@@ -4,6 +4,7 @@ module.exports = app => {
   const { mongoose: { Schema, model } } = app;
   const bookSchema = new Schema({
     title: String,
+    author: String,
     description: String,
     cover: String,
     fileName: String,
@@ -83,6 +84,7 @@ module.exports = app => {
     }
     this.title = this.getMetadataFromKey('title');
     this.description = this.getMetadataFromKey('description');
+    this.author = this.getMetadataFromKey('creator');
     const coverId = this.getMetaFromName('cover');
     const coverItem = this.getManifestItemFromId(coverId);
     this.cover = coverItem.href;
