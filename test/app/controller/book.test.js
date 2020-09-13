@@ -7,6 +7,7 @@ const { mockNewUser } = require('../../lib');
 
 describe('app/controller/book.test.js', async () => {
   const mockUser = mockNewUser();
+  let bookBak = null;
 
   before(async () => {
     const ctx = app.mockContext();
@@ -35,6 +36,20 @@ describe('app/controller/book.test.js', async () => {
     const book = await model.Book.findOne({ user: session.user._id });
     assert(book);
     assert(fs.existsSync(helper.asarFileDir(book.fileName)));
+    bookBak = book;
+  });
+
+  it('get all book', async () => {
+    const res = await app.httpRequest()
+      .get('/api/book')
+      .expect(200);
+      // .expect({});
+    assert(res.body.code === 0);
+    const books = res.body.data;
+    assert(books.length === 1);
+    const book = books[0];
+    assert(book._id === bookBak._id.toString());
+    assert(book.fileName === bookBak.fileName);
   });
 
   it('remove book', async () => {

@@ -10,11 +10,11 @@ class BookController extends Controller {
   async index() {
     const { ctx } = this;
     const { model, helper, session } = ctx;
-    const res = await model.Book.find({ user: session.user._id });
+    const res = await model.Book.find({ user: session.user._id }).select('-content -user');
     ctx.body = helper.createSuccessResp(res);
   }
   async create() {
-    console.log('book create');
+    // console.log('book create');
     const { ctx } = this;
 
     const fileSteam = await ctx.getFileStream();
