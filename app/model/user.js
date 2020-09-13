@@ -6,6 +6,10 @@ module.exports = app => {
     name: String,
     email: String,
     password: String,
+    categories: {
+      type: Map,
+      of: String,
+    },
   });
   return model('User', userSchema);
 };
