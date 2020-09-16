@@ -12,6 +12,7 @@
     "egg": "^2.15.1",
     "egg-mongoose": "3.3.0",
     "egg-scripts": "^2.11.0",
+    "mime-types": "^2.1.27",
     "mkdirp": "^1.0.4",
     "rimraf": "^3.0.2",
     "stream-wormhole": "^1.1.0",

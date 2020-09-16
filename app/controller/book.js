@@ -5,6 +5,7 @@ const sendToWormhole = require('stream-wormhole');
 const fs = require('fs');
 const path = require('path');
 const rimraf = require('rimraf');
+const mime = require('mime-types');
 
 class BookController extends Controller {
   async index() {
@@ -42,6 +43,18 @@ class BookController extends Controller {
     await fs.promises.unlink(helper.asarFileDir(book.fileName));
     await model.Book.deleteOne({ _id: mongoose.Types.ObjectId(ctx.params.id) });
     ctx.body = helper.createSuccessResp(null);
+  }
+  async bookFile() {
+    const { ctx } = this;
+    const fileName = ctx.params[0];
+    const filePath = ctx.params[1];
+    const file = await ctx.service.file.readAsarFile(ctx.helper.asarFileDir(fileName), filePath);
+    const contentType = mime.lookup(filePath);
+    if (contentType) {
+      ctx.set('Content-Type', contentType);
+    }
+    ctx.set('Cache-Control', 'max-age=60');
+    ctx.body = file;
   }
 }
 
