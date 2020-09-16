@@ -8,6 +8,7 @@ module.exports = app => {
     description: String,
     cover: String,
     fileName: String,
+    contentPath: String,
     user: {
       type: Schema.Types.ObjectId,
       required: true,
