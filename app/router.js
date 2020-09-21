@@ -10,5 +10,6 @@ module.exports = app => {
   router.post('/api/user/login', controller.user.login);
   router.post('/api/user/logout', controller.user.logout);
   router.resources('book', '/api/book', controller.book);
+  router.get('/api/book/toc/:fileName', controller.book.tableOfContents);
   router.get(/^\/book-file\/([\w-]+)\/(.*)$/, controller.book.bookFile);
 };

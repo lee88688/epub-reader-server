@@ -8,7 +8,7 @@ module.exports = app => {
     description: String,
     cover: String,
     fileName: String,
-    contentPath: String,
+    contentPath: String, // for app use
     user: {
       type: Schema.Types.ObjectId,
       required: true,
@@ -29,14 +29,20 @@ module.exports = app => {
       },
     },
   });
+
   bookSchema.virtual('contentObject').get(function() {
+    if (!this._contentObject) {
+      this._contentObject = JSON.parse(this.content);
+    }
     return this._contentObject || {};
   });
+
   bookSchema.virtual('contentMetadata').get(function() {
     const { contentObject: { package: p } = {} } = this;
     if (!p) return {};
     return p.metadata[0];
   });
+
   /**
    * get meta
    * @param {String} name meta name attribute
@@ -48,6 +54,7 @@ module.exports = app => {
     if (!res) return null;
     return res.$.content;
   };
+
   /**
    * get metadata key value
    * @param {String} key metadata key without dc namespace.
@@ -66,6 +73,7 @@ module.exports = app => {
      */
     return value.length ? value.map(item => (item._ ? item._ : item)).join(',') : '';
   };
+
   /**
    * get manifest using id
    * @param {String} id manifest id
@@ -78,6 +86,7 @@ module.exports = app => {
     const item = items.find(({ $ }) => $.id === id);
     return item ? item.$ : null;
   };
+
   bookSchema.methods.fillInBaseInfo = function() {
     if (!this.content) {
       app.logger.warn('fill in base info before setting content.');
@@ -89,6 +98,15 @@ module.exports = app => {
     const coverId = this.getMetaFromName('cover');
     const coverItem = this.getManifestItemFromId(coverId);
     this.cover = coverItem.href;
+  };
+
+  bookSchema.methods.getTocPath = function() {
+    // todo: support epub3 toc
+    const { contentObject: { package: p } } = this;
+    const spine = p.spine[0];
+    const tocId = spine.$.toc;
+    const { href } = this.getManifestItemFromId(tocId);
+    return { href };
   };
   return model('Book', bookSchema);
 };

@@ -56,6 +56,17 @@ class BookController extends Controller {
     ctx.set('Cache-Control', 'max-age=60');
     ctx.body = file;
   }
+  async tableOfContents() {
+    // todo: Authentication for fileName and user
+    const { ctx } = this;
+    const { service, helper, model } = ctx;
+    const { fileName } = ctx.params;
+    const book = await model.Book.findOne({ fileName });
+    const { href } = book.getTocPath();
+    const buffer = await service.file.readAsarFile(helper.asarFileDir(fileName), href);
+    const toc = await service.epub.parseToc(buffer.toString('utf8'));
+    ctx.body = helper.createSuccessResp(toc);
+  }
 }
 
 module.exports = BookController;

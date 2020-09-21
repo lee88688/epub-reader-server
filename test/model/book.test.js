@@ -15,17 +15,25 @@ describe('test/model/book.test.js', () => {
     const content = await xml2js.parseStringPromise(data.toString('utf8'));
     book.content = JSON.stringify(content);
   });
+
   it('metadata', () => {
     // eslint-disable-next-line no-script-url
     assert(book.getMetadataFromKey('title') === 'JavaScript: The Good Parts');
     assert(book.getMetadataFromKey('publisher') === 'Yahoo Press');
   });
-  it('mata', () => {
+
+  it('cover', () => {
     assert(book.getMetaFromName('cover') === 'cover-image');
   });
+
   it('manifest', () => {
     const cover = book.getManifestItemFromId('cover');
     assert(cover.href = 'cover.html');
     assert(cover['media-type'] === 'application/xhtml+xml');
+  });
+
+  it('get toc href', () => {
+    const { href } = book.getTocPath();
+    assert(href === 'toc.ncx');
   });
 });

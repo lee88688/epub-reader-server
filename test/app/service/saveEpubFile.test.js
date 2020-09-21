@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const rimraf = require('rimraf');
 
-describe('save epub file service test', () => {
+describe('test/app/service/saveEpubFile.test.js', () => {
   const fileName = 'sample1';
   const mockUser = Mock.mock({
     name: '@name',

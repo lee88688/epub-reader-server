@@ -52,6 +52,17 @@ describe('app/controller/book.test.js', async () => {
     assert(book.fileName === bookBak.fileName);
   });
 
+  it('get toc of book', async () => {
+    const res = await app.httpRequest()
+      .get(`/api/book/toc/${bookBak.fileName}`)
+      .expect(200);
+    assert(res.body.code === 0);
+    const data = res.body.data;
+    assert(data.length === 3);
+    assert(data[0].label === 'Contents');
+    assert(data[0].src === 'OEBPS/GeographyofBli_body_split_000.html#contents_1');
+  });
+
   it('remove book', async () => {
     const ctx = app.mockContext();
     const { model, session, helper } = ctx;

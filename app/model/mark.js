@@ -7,6 +7,10 @@ module.exports = app => {
       type: String,
       required: true,
     },
+    epubcfi: {
+      type: String,
+      required: true,
+    },
     book: {
       type: Schema.Types.ObjectId,
       required: true,

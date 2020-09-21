@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="eng">
+  <head>
+    <meta content="a242af33-73b7-434b-8cde-511565f4f860" name="dtb:uid"/>
+    <meta content="3" name="dtb:depth"/>
+    <meta content="calibre (3.21.0)" name="dtb:generator"/>
+    <meta content="0" name="dtb:totalPageCount"/>
+    <meta content="0" name="dtb:maxPageNumber"/>
+  </head>
+  <docTitle>
+    <text>Sway</text>
+  </docTitle>
+  <navMap>
+    <navPoint class="titlepage" id="level1-titlepage" playOrder="1">
+      <navLabel>
+        <text>AUTHOR'S NOTE</text>
+      </navLabel>
+      <content src="OEBPS/Sway_body_split_002.html"/>
+    </navPoint>
+    <navPoint class="book" id="level1-book1" playOrder="2">
+      <navLabel>
+        <text class="has-class">PART ONE</text>
+      </navLabel>
+      <content src="OEBPS/Sway_body_split_003.html"/>
+      <navPoint class="chapter" id="level2-book1chap01" playOrder="3">
+        <navLabel>
+          <text>THE HOUSES, 1969</text>
+        </navLabel>
+        <content src="OEBPS/Sway_body_split_004.html"/>
+      </navPoint>
+    </navPoint>
+  </navMap>
+</ncx>

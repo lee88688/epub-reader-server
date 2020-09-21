@@ -7,7 +7,7 @@ const path = require('path');
 const rimraf = require('rimraf');
 const xml2js = require('xml2js');
 
-describe('file service test', () => {
+describe('test/app/service/file.test.js', () => {
   const fileName = 'sample1';
   let asarDir = '';
 
