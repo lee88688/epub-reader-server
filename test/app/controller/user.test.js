@@ -22,6 +22,6 @@ describe('test/app/controller/user.test.js', () => {
   });
 
   after(async () => {
-    await app.mongoose.model('User').deleteOne({ mockUser });
+    await app.mongoose.model('User').deleteOne({ email: mockUser.email });
   });
 });
