@@ -3,6 +3,7 @@
 const { app, assert } = require('egg-mock/bootstrap');
 const { mockNewUser } = require('../../lib');
 const Mock = require('mockjs');
+const _ = require('lodash');
 
 describe('test/app/controller/mark.test.js', () => {
   let userId;
@@ -49,6 +50,18 @@ describe('test/app/controller/mark.test.js', () => {
     assert(mark.epubcfi === mockMark.epubcfi);
     assert(mark.book.toString() === mockMark.book);
     assert(mark.content === mockMark.content);
+  });
+
+  it('get marks', async () => {
+    const res = await app.httpRequest()
+      .get(`/api/mark/${bookId}`)
+      .expect(200);
+    const { code, data } = res.body;
+    assert(code === 0);
+    assert(data.length === 1);
+    const [ mark ] = data;
+    const markRes = _.omit(mark, [ '_id', '__v' ]);
+    assert.deepStrictEqual(markRes, mockMark);
   });
 
   it('update the mark', async () => {
