@@ -1,5 +1,7 @@
 'use strict';
 
+const path = require('path-webpack');
+
 module.exports = app => {
   const { mongoose: { Schema, model } } = app;
   const bookSchema = new Schema({
@@ -87,6 +89,16 @@ module.exports = app => {
     return item ? item.$ : null;
   };
 
+  /**
+   * get href full path relative to book root directory.
+   * @param {String} href manifest item href
+   */
+  bookSchema.methods.getManifestItemHrefUrl = function(href) {
+    if (!this.contentPath) return;
+    const dir = path.dirname(this.contentPath);
+    return path.join(dir, href);
+  };
+
   bookSchema.methods.fillInBaseInfo = function() {
     if (!this.content) {
       app.logger.warn('fill in base info before setting content.');
@@ -97,7 +109,7 @@ module.exports = app => {
     this.author = this.getMetadataFromKey('creator');
     const coverId = this.getMetaFromName('cover');
     const coverItem = this.getManifestItemFromId(coverId);
-    this.cover = coverItem.href;
+    this.cover = this.getManifestItemHrefUrl(coverItem.href);
   };
 
   bookSchema.methods.getTocPath = function() {
@@ -106,7 +118,7 @@ module.exports = app => {
     const spine = p.spine[0];
     const tocId = spine.$.toc;
     const { href } = this.getManifestItemFromId(tocId);
-    return { href };
+    return { href: this.getManifestItemHrefUrl(href) };
   };
   return model('Book', bookSchema);
 };

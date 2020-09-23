@@ -15,6 +15,7 @@
     "lodash": "^4.17.20",
     "mime-types": "^2.1.27",
     "mkdirp": "^1.0.4",
+    "path-webpack": "^0.0.3",
     "rimraf": "^3.0.2",
     "stream-wormhole": "^1.1.0",
     "unzipper": "^0.10.11",

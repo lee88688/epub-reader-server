@@ -11,6 +11,8 @@ describe('test/model/book.test.js', () => {
     const ctx = app.mockContext();
     const { model } = ctx;
     book = new model.Book({ fileName: 'test' });
+    // set contentPath, manifest item href is relative to content.opf
+    book.contentPath = 'OEBPS/content.opf';
     const data = await fs.promises.readFile(path.join(app.config.baseDir, 'test/assets/content.opf'));
     const content = await xml2js.parseStringPromise(data.toString('utf8'));
     book.content = JSON.stringify(content);
@@ -34,6 +36,10 @@ describe('test/model/book.test.js', () => {
 
   it('get toc href', () => {
     const { href } = book.getTocPath();
-    assert(href === 'toc.ncx');
+    assert(href === 'OEBPS/toc.ncx');
+  });
+
+  it('getManifestItemHrefUrl', () => {
+    assert(book.getManifestItemHrefUrl('cover.html') === 'OEBPS/cover.html');
   });
 });
