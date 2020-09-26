@@ -15,6 +15,11 @@ class MarkController extends Controller {
     const { ctx } = this;
     const { model, helper } = ctx;
     const { book } = ctx.params;
+    const { epubcfi, color } = ctx.request.body;
+    if (!epubcfi || !color) {
+      ctx.body = helper.createFailResp("epubcfi or color can't be empty.");
+      return;
+    }
     const mark = new model.Mark({ ...ctx.request.body, book });
     await mark.save();
     ctx.body = helper.createSuccessResp(mark._id.toString());
@@ -22,8 +27,10 @@ class MarkController extends Controller {
   async update() {
     const { ctx } = this;
     const { model, helper } = ctx;
-    const { type, epubcfi, content } = ctx.request.body;
-    const updateData = _.omitBy({ type, epubcfi, content }, v => !v);
+    const { type, epubcfi, content, color, selectedString } = ctx.request.body;
+    const updateData = _.omitBy(
+      { type, epubcfi, content, color, selectedString }, v => typeof v === 'undefined'
+    );
     const { id } = ctx.params;
     await model.Mark.where({ _id: id }).update(updateData);
     ctx.body = helper.createSuccessResp();

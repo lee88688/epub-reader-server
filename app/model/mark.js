@@ -15,7 +15,9 @@ module.exports = app => {
       type: Schema.Types.ObjectId,
       required: true,
     },
+    color: String,
     content: String,
+    selectedString: String,
   });
   return model('Mark', markSchema);
 };
