@@ -26,13 +26,15 @@ class MarkController extends Controller {
   }
   async update() {
     const { ctx } = this;
-    const { model, helper } = ctx;
+    const { model, helper, app: { mongoose } } = ctx;
     const { type, epubcfi, content, color, selectedString } = ctx.request.body;
     const updateData = _.omitBy(
       { type, epubcfi, content, color, selectedString }, v => typeof v === 'undefined'
     );
-    const { id } = ctx.params;
-    await model.Mark.where({ _id: id }).update(updateData);
+    const { id, book } = ctx.params;
+    await model.Mark
+      .where({ _id: new mongoose.Types.ObjectId(id), book: new mongoose.Types.ObjectId(book) })
+      .update(updateData);
     ctx.body = helper.createSuccessResp();
   }
   async destroy() {
