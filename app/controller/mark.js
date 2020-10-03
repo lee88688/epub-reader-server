@@ -8,19 +8,24 @@ class MarkController extends Controller {
     const { ctx } = this;
     const { model, helper, app: { mongoose } } = ctx;
     const { book } = ctx.params;
-    const marks = await model.Mark.find({ book: mongoose.Types.ObjectId(book) });
+    const { type } = ctx.request.query;
+    const queryObj = { book: new mongoose.Types.ObjectId(book) };
+    if (type) {
+      queryObj.type = type;
+    }
+    const marks = await model.Mark.find(queryObj);
     ctx.body = helper.createSuccessResp(marks || []);
   }
   async create() {
     const { ctx } = this;
-    const { model, helper } = ctx;
+    const { model, helper, app: { mongoose } } = ctx;
     const { book } = ctx.params;
     const { epubcfi, color } = ctx.request.body;
     if (!epubcfi || !color) {
       ctx.body = helper.createFailResp("epubcfi or color can't be empty.");
       return;
     }
-    const mark = new model.Mark({ ...ctx.request.body, book });
+    const mark = new model.Mark({ ...ctx.request.body, book: new mongoose.Types.ObjectId(book) });
     await mark.save();
     ctx.body = helper.createSuccessResp(mark._id.toString());
   }
@@ -34,7 +39,7 @@ class MarkController extends Controller {
     const { id, book } = ctx.params;
     await model.Mark
       .where({ _id: new mongoose.Types.ObjectId(id), book: new mongoose.Types.ObjectId(book) })
-      .update(updateData);
+      .updateOne(updateData);
     ctx.body = helper.createSuccessResp();
   }
   async destroy() {

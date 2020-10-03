@@ -34,6 +34,7 @@ describe('test/app/controller/mark.test.js', () => {
     mockMark = Mock.mock({
       type: 'highlight',
       epubcfi: 'epubcfi(@word)',
+      color: 'red',
       book: bookId,
       content: '@sentence',
     });
@@ -41,9 +42,9 @@ describe('test/app/controller/mark.test.js', () => {
       .post(`/api/mark/${bookId}`)
       .send(mockMark)
       .expect(200);
-    const { data: id, code } = res.body;
+    const { data: id, code, msg } = res.body;
     markId = id;
-    assert(code === 0);
+    assert(code === 0, msg);
     const { model } = app.mockContext();
     const mark = await model.Mark.findOne({ _id: id });
     assert(mark.type === mockMark.type);
@@ -62,6 +63,15 @@ describe('test/app/controller/mark.test.js', () => {
     const [ mark ] = data;
     const markRes = _.omit(mark, [ '_id', '__v' ]);
     assert.deepStrictEqual(markRes, mockMark);
+  });
+
+  it('get bookmark marks', async () => {
+    const res = await app.httpRequest()
+      .get(`/api/mark/${bookId}?type=bookmark`)
+      .expect(200);
+    const { code, data } = res.body;
+    assert(code === 0);
+    assert(data.length === 0);
   });
 
   it('update the mark', async () => {
