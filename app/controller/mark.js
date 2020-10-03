@@ -20,9 +20,9 @@ class MarkController extends Controller {
     const { ctx } = this;
     const { model, helper, app: { mongoose } } = ctx;
     const { book } = ctx.params;
-    const { epubcfi, color } = ctx.request.body;
-    if (!epubcfi || !color) {
-      ctx.body = helper.createFailResp("epubcfi or color can't be empty.");
+    const { epubcfi } = ctx.request.body;
+    if (!epubcfi) {
+      ctx.body = helper.createFailResp("epubcfi can't be empty.");
       return;
     }
     const mark = new model.Mark({ ...ctx.request.body, book: new mongoose.Types.ObjectId(book) });
