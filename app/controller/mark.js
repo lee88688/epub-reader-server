@@ -32,9 +32,9 @@ class MarkController extends Controller {
   async update() {
     const { ctx } = this;
     const { model, helper, app: { mongoose } } = ctx;
-    const { type, epubcfi, content, color, selectedString } = ctx.request.body;
+    const { type, epubcfi, content, color, selectedString, title } = ctx.request.body;
     const updateData = _.omitBy(
-      { type, epubcfi, content, color, selectedString }, v => typeof v === 'undefined'
+      { type, epubcfi, content, color, selectedString, title }, v => typeof v === 'undefined'
     );
     const { id, book } = ctx.params;
     await model.Mark

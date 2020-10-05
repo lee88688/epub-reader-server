@@ -15,7 +15,8 @@ module.exports = app => {
       type: Schema.Types.ObjectId,
       required: true,
     },
-    color: String,
+    color: String, // for highlight only
+    title: String,
     content: String,
     selectedString: String,
   });

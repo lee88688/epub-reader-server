@@ -36,6 +36,7 @@ describe('test/app/controller/mark.test.js', () => {
       epubcfi: 'epubcfi(@word)',
       color: 'red',
       book: bookId,
+      title: '@word',
       content: '@sentence',
     });
     const res = await app.httpRequest()
@@ -51,6 +52,7 @@ describe('test/app/controller/mark.test.js', () => {
     assert(mark.epubcfi === mockMark.epubcfi);
     assert(mark.book.toString() === mockMark.book);
     assert(mark.content === mockMark.content);
+    assert(mark.title === mockMark.title);
   });
 
   it('get marks', async () => {
@@ -86,6 +88,7 @@ describe('test/app/controller/mark.test.js', () => {
     assert(mark.epubcfi === mockMark.epubcfi);
     assert(mark.book.toString() === mockMark.book);
     assert(mark.content === newContent);
+    assert(mark.title === mockMark.title);
   });
 
   it('delete the mark', async () => {
