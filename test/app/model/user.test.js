@@ -1,16 +1,23 @@
 'use strict';
 
 const { app, assert } = require('egg-mock/bootstrap');
+const { mockNewUser } = require('../../lib');
 
 describe('test/model/user.test.js', () => {
+  const mockUser = mockNewUser();
+
+  after(async () => {
+    const ctx = app.mockContext();
+    const { model: { User } } = ctx;
+    await User.deleteOne({ name: mockUser.name });
+  });
+
   it('create user', async () => {
     const ctx = app.mockContext();
     const { model: { User } } = ctx;
-    const name = 'luci';
-    const user = new User({ name });
+    const user = new User(mockUser);
     await user.save();
-    assert(user.name === name);
+    assert(user.name === mockUser.name);
     assert(user._id);
-    await User.deleteOne({ _id: user._id });
   });
 });

@@ -8,7 +8,8 @@ module.exports = app => {
     password: String,
     categories: {
       type: Map,
-      of: String,
+      of: [ String ],
+      default() { return {}; },
     },
   });
   return model('User', userSchema);

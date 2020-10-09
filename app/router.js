@@ -9,8 +9,16 @@ module.exports = app => {
   // user
   router.post('/api/user/login', controller.user.login);
   router.post('/api/user/logout', controller.user.logout);
+  // category
+  router.resources('category', '/api/category', controller.category);
+  router.post('/api/category/rename', controller.category.rename);
+  router.post('/api/category/delete', controller.category.deleteCategory);
+  router.post('/api/category/add-books', controller.category.addBooks);
+  router.post('/api/category/remove-books', controller.category.removeBooks);
+  // book
   router.resources('book', '/api/book', controller.book);
   router.get('/api/book/toc/:fileName', controller.book.tableOfContents);
   router.get(/^\/book-file\/([\w-]+)\/(.*)$/, controller.book.bookFile);
+  // mark
   router.resources('mark', '/api/mark/:book', controller.mark);
 };

@@ -7,7 +7,7 @@ class UserController extends Controller {
     const { ctx } = this;
     const { model } = ctx;
     const { email, password } = ctx.request.body;
-    const res = await model.User.findOne({ email, password }).exec();
+    const res = await model.User.findOne({ email, password }).select('-categories');
     if (!res) {
       ctx.body = ctx.helper.createFailResp('email or password does not exits.');
       return;
