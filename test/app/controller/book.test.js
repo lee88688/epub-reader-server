@@ -3,6 +3,7 @@
 const { app, assert, mock } = require('egg-mock/bootstrap');
 const fs = require('fs');
 const path = require('path');
+const Mock = require('mockjs');
 const { mockNewUser } = require('../../lib');
 
 describe('app/controller/book.test.js', async () => {
@@ -61,6 +62,30 @@ describe('app/controller/book.test.js', async () => {
     assert(data.length === 3);
     assert(data[0].label === 'Contents');
     assert(data[0].src === 'OEBPS/GeographyofBli_body_split_000.html#contents_1');
+  });
+
+  it('get the books of the category', async () => {
+    const categoryName = Mock.Random.word();
+    const categoryCname = Mock.Random.cword(3);
+    const { mongoose } = app;
+    const user = await mongoose.model('User').findOne({ email: mockUser.email });
+    const books = [ bookBak._id.toString() ];
+    user.categories.set(categoryName, books);
+    user.categories.set(categoryCname, books);
+    await user.save();
+    const res1 = await app.httpRequest()
+      .get('/api/book')
+      .query({ category: categoryName })
+      .expect(200);
+    const actual1 = res1.body.data.map(({ _id }) => _id);
+    assert.deepStrictEqual(actual1, books);
+    // with other name
+    const res2 = await app.httpRequest()
+      .get('/api/book')
+      .query({ category: categoryCname })
+      .expect(200);
+    const actual2 = res2.body.data.map(({ _id }) => _id);
+    assert.deepStrictEqual(actual2, books);
   });
 
   it('remove book', async () => {

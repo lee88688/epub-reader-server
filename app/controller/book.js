@@ -11,7 +11,16 @@ class BookController extends Controller {
   async index() {
     const { ctx } = this;
     const { model, helper, session } = ctx;
-    const res = await model.Book.find({ user: session.user._id }).select('-content -user');
+    const { category } = ctx.request.query;
+    const searchData = { user: session.user._id };
+    if (category) {
+      const user = await model.User.findOne({ _id: session.user._id });
+      const books = user.categories.get(category);
+      if (Array.isArray(books) && books.length > 0) {
+        searchData._id = { $in: books };
+      }
+    }
+    const res = await model.Book.find(searchData).select('-content -user -__v');
     ctx.body = helper.createSuccessResp(res);
   }
   async create() {
