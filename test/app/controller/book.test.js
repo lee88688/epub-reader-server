@@ -92,6 +92,8 @@ describe('app/controller/book.test.js', async () => {
     const ctx = app.mockContext();
     const { model, session, helper } = ctx;
     const book = await model.Book.findOne({ user: session.user._id });
+    const mark = new model.Mark({ type: 'highlight', epubcfi: Mock.Random.id(), book: book._id });
+    await mark.save();
     app.mockCsrf();
     await app.httpRequest()
       .delete(`/api/book/${book._id}`)
@@ -99,6 +101,10 @@ describe('app/controller/book.test.js', async () => {
     assert(!fs.existsSync(helper.asarFileDir(book.fileName)));
     const delBook = await model.Book.findOne({ user: session.user._id });
     assert(!delBook);
+    // removing book will remove its marks
+    assert(mark.epubcfi);
+    const m = await model.Mark.findOne({ epubcfi: mark.epubcfi });
+    assert(!m);
   });
 
   after(async () => {

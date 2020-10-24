@@ -50,6 +50,7 @@ class BookController extends Controller {
       return;
     }
     await fs.promises.unlink(helper.asarFileDir(book.fileName));
+    await model.Mark.deleteMany({ book: mongoose.Types.ObjectId(ctx.params.id) });
     await model.Book.deleteOne({ _id: mongoose.Types.ObjectId(ctx.params.id) });
     ctx.body = helper.createSuccessResp(null);
   }
