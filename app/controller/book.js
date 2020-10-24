@@ -16,7 +16,7 @@ class BookController extends Controller {
     if (category) {
       const user = await model.User.findOne({ _id: session.user._id });
       const books = user.categories.get(category);
-      if (Array.isArray(books) && books.length > 0) {
+      if (Array.isArray(books)) {
         searchData._id = { $in: books };
       }
     }
@@ -49,8 +49,13 @@ class BookController extends Controller {
       ctx.body = helper.createFailResp('book id is not found.');
       return;
     }
+    const user = await model.User.findOne({ _id: session.user._id });
+    for (const key of user.categories.keys()) {
+      user.categories.set(key, [ ...user.categories.get(key).filter(id => ctx.params.id !== id) ]);
+    }
+    await user.save();
     await fs.promises.unlink(helper.asarFileDir(book.fileName));
-    await model.Mark.deleteMany({ book: mongoose.Types.ObjectId(ctx.params.id) });
+    await model.Mark.deleteMany({ book: mongoose.Types.ObjectId(ctx.params.id) }); // remove book's mark
     await model.Book.deleteOne({ _id: mongoose.Types.ObjectId(ctx.params.id) });
     ctx.body = helper.createSuccessResp(null);
   }

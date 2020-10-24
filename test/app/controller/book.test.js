@@ -94,6 +94,10 @@ describe('app/controller/book.test.js', async () => {
     const book = await model.Book.findOne({ user: session.user._id });
     const mark = new model.Mark({ type: 'highlight', epubcfi: Mock.Random.id(), book: book._id });
     await mark.save();
+    const categoryName = 'test';
+    const user = await model.User.findOne({ _id: session.user._id });
+    user.categories.set(categoryName, [ book._id ]);
+    await user.save();
     app.mockCsrf();
     await app.httpRequest()
       .delete(`/api/book/${book._id}`)
@@ -105,6 +109,9 @@ describe('app/controller/book.test.js', async () => {
     assert(mark.epubcfi);
     const m = await model.Mark.findOne({ epubcfi: mark.epubcfi });
     assert(!m);
+    // removing book will remove book in categories
+    const userAfterRequest = await model.User.findOne({ _id: session.user._id });
+    assert(userAfterRequest.categories.get(categoryName).length === 0);
   });
 
   after(async () => {
