@@ -1,6 +1,6 @@
 # epub-reader
 
-background service of (reader app)[https://github.com/lee88688/epub-reader-app]
+background service of [reader app](https://github.com/lee88688/epub-reader-app)
 
 ## QuickStart
 
