@@ -40,6 +40,14 @@ describe('test/app/controller/user.test.js', () => {
     const { data } = res.body;
     assert(data && data.length && data[0] === categoryName);
 
+    // add category with same name
+    const resSameName = await app.httpRequest()
+      .post('/api/category')
+      .send({ name: categoryName })
+      .expect(200);
+    const { code: codeSameName } = resSameName.body;
+    assert(codeSameName === 1);
+
     // add books
     const getCategoryBooks = async name => {
       const user = await model.User.findOne({ email: mockUser.email }).select('categories');

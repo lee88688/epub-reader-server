@@ -19,6 +19,10 @@ class CategoryController extends Controller {
     const { model, session, helper } = ctx;
     const { name } = ctx.request.body;
     const user = await model.User.findOne({ _id: ObjectId(session.user._id) }).select('categories');
+    if (user.categories.get(name)) {
+      ctx.body = helper.createFailResp("can't create category with same name!");
+      return;
+    }
     user.categories.set(name, []);
     await user.save();
     ctx.body = helper.createSuccessResp();
