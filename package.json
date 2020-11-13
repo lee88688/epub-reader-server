@@ -37,6 +37,7 @@
   },
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-epub-reader",
+    "start:docker": "egg-scripts start --title=egg-server-epub-reader",
     "stop": "egg-scripts stop --title=egg-server-epub-reader",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
