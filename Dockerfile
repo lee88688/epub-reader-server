@@ -1,6 +1,6 @@
 FROM node:10-slim
 
-ENV REGISTRY=https://registry.npmjs.org/
+ENV REGISTRY=https://registry.npm.taobao.org
 
 COPY ./ /opt/server
 
@@ -9,4 +9,6 @@ RUN cd /opt/server \
 
 EXPOSE 7001
 
-CMD [ "npm", "start:docker" ]
+WORKDIR /opt/server
+
+CMD [ "npm","run", "start:docker" ]
