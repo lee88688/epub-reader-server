@@ -15,3 +15,4 @@ typings/
 .vscode/
 temp/
 asar/
+public/

@@ -25,6 +25,10 @@ module.exports = appInfo => {
     fileExtensions: [ '.epub' ], // 增加对 epub 扩展名的文件支持
   };
 
+  config.static = {
+    dir: path.join(appInfo.baseDir, 'public'),
+  };
+
   // add your user config here
   const userConfig = {
     tempDir: path.join(appInfo.root, 'temp'),
