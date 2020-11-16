@@ -1,0 +1,49 @@
+name: build docker image
+
+on:
+  push:
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          repo: 'lee88688/epub-reader-app'
+          version: 'latest'
+          file: 'epub-reader-app.zip'
+
+      - name: unzip epub-reader-app.zip
+        run: unzip epub-reader-app.zip -d public
+
+      - name: Set output
+        id: tag
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: |
+            lee88688/beryllium:latest
+            lee88688/beryllium:${{ steps.tag.outputs.tag }}
+
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
