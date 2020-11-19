@@ -20,7 +20,8 @@
     "stream-wormhole": "^1.1.0",
     "unzipper": "^0.10.11",
     "uuid": "^8.3.0",
-    "xml2js": "^0.4.23"
+    "xml2js": "^0.4.23",
+    "yargs": "^16.1.1"
   },
   "devDependencies": {
     "autod": "^3.0.1",
@@ -46,7 +47,8 @@
     "cov": "egg-bin cov",
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
-    "autod": "autod"
+    "autod": "autod",
+    "user": "node ./scripts/user.js"
   },
   "ci": {
     "version": "10"
