@@ -23,4 +23,5 @@ module.exports = app => {
   router.get('/api/book/current/:id', controller.book.getBookCurrent);
   // mark
   router.resources('mark', '/api/mark/:book', controller.mark);
+  // todo: when not start with /api will redirect to /public/index.html or /
 };

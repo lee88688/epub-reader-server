@@ -29,6 +29,15 @@ module.exports = appInfo => {
     dir: path.join(appInfo.baseDir, 'public'),
   };
 
+  config.security = {
+    csrf: {
+      // todo: deal with csrf
+      ignore(ctx) {
+        return ctx.request.url.startsWith('/api/user/login');
+      },
+    },
+  };
+
   // add your user config here
   const userConfig = {
     tempDir: path.join(appInfo.root, 'temp'),

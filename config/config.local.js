@@ -10,12 +10,12 @@ module.exports = () => {
 
   return {
     mongoose,
-    security: {
-      csrf: {
-        ignore(ctx) {
-          return ctx.ip.startsWith('127');
-        },
-      },
-    },
+    // security: {
+    //   csrf: {
+    //     ignore(ctx) {
+    //       return ctx.ip.startsWith('127');
+    //     },
+    //   },
+    // },
   };
 };
