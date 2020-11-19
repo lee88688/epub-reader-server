@@ -88,6 +88,24 @@ describe('app/controller/book.test.js', async () => {
     assert.deepStrictEqual(actual2, books);
   });
 
+  it('book current', async () => {
+    app.mockCsrf();
+    const epubcfi = 'epubcfi(1234)';
+
+    const updateRes = await app.httpRequest()
+      .post(`/api/book/current/${bookBak._id}`)
+      .send({ current: epubcfi })
+      .expect(200);
+    assert(updateRes.body.code === 0);
+
+    console.log(11);
+    const getRes = await app.httpRequest()
+      .get(`/api/book/current/${bookBak._id}`)
+      .expect(200);
+    assert(getRes.body.code === 0);
+    assert(getRes.body.data === epubcfi);
+  });
+
   it('remove book', async () => {
     const ctx = app.mockContext();
     const { model, session, helper } = ctx;

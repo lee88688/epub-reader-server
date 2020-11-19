@@ -19,6 +19,8 @@ module.exports = app => {
   router.resources('book', '/api/book', controller.book);
   router.get('/api/book/toc/:fileName', controller.book.tableOfContents);
   router.get(/^\/book-file\/([\w-]+)\/(.*)$/, controller.book.bookFile);
+  router.post('/api/book/current/:id', controller.book.updateBookCurrent);
+  router.get('/api/book/current/:id', controller.book.getBookCurrent);
   // mark
   router.resources('mark', '/api/mark/:book', controller.mark);
 };

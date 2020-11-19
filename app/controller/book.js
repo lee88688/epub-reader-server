@@ -82,6 +82,36 @@ class BookController extends Controller {
     const toc = await service.epub.parseToc(buffer.toString('utf8'));
     ctx.body = helper.createSuccessResp(toc);
   }
+  async getBookCurrent() {
+    const { ctx } = this;
+    const { helper, model, app: { mongoose } } = ctx;
+    const { id } = ctx.params;
+    const book = await model.Book.findOne({ _id: mongoose.Types.ObjectId(id) });
+    if (!book) {
+      ctx.body = helper.createFailResp('book is not found!');
+      return;
+    }
+    ctx.body = helper.createSuccessResp(book.current);
+  }
+  async updateBookCurrent() {
+    const { ctx } = this;
+    const { helper, model, app: { mongoose } } = ctx;
+    const { id } = ctx.params;
+    const { current } = ctx.request.body;
+    const currentReg = /epubcfi\(.*?\)/;
+    if (!currentReg.test(current)) {
+      ctx.body = helper.createFailResp('illegal epubcfi!');
+      return;
+    }
+    const book = await model.Book.findOne({ _id: mongoose.Types.ObjectId(id) });
+    if (!book) {
+      ctx.body = helper.createFailResp('book is not found!');
+      return;
+    }
+    book.current = current;
+    await book.save();
+    ctx.body = helper.createSuccessResp();
+  }
 }
 
 module.exports = BookController;

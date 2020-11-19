@@ -11,6 +11,7 @@ module.exports = app => {
     cover: String,
     fileName: String,
     contentPath: String, // for app use
+    current: String, // current reading progress. when the user stop reading, it will update.
     user: {
       type: Schema.Types.ObjectId,
       required: true,
