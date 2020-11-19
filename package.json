@@ -47,8 +47,7 @@
     "cov": "egg-bin cov",
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
-    "autod": "autod",
-    "user": "node ./scripts/user.js"
+    "autod": "autod"
   },
   "ci": {
     "version": "10"
