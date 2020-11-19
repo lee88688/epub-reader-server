@@ -1,6 +1,7 @@
 FROM node:10-slim
 
 ENV REGISTRY=https://registry.npm.taobao.org
+ENV ASAR_DIR=/opt/asar
 
 COPY ./ /opt/server
 

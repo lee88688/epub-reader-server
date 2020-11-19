@@ -41,7 +41,7 @@ module.exports = appInfo => {
   // add your user config here
   const userConfig = {
     tempDir: path.join(appInfo.root, 'temp'),
-    asarDir: path.join(appInfo.root, 'asar'),
+    asarDir: process.env.ASAR_DIR || path.join(appInfo.root, 'asar'),
   };
 
   return {

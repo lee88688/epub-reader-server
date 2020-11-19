@@ -2,6 +2,12 @@
 
 background service of [reader app](https://github.com/lee88688/epub-reader-app)
 
+## docker image
+
+To build docker image, it need download [reader app](https://github.com/lee88688/epub-reader-app) release(epub-reader-app.zip) and extract to root/public directory and build.
+
+when run docker image, you need give `MONGO_DB` env for mongodb uri, and mount folder to `/opt/asar`.
+
 ## QuickStart
 
 <!-- add docs here for user -->
