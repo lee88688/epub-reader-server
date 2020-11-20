@@ -36,7 +36,7 @@ const argv = yargs(hideBin(process.argv))
   .argv;
 
 
-mongoose.connect(process.env.MONGO_DB);
+mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true, useUnifiedTopology: true });
 // mongoose.connect('mongodb://127.0.0.1:27017/test', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const UserModel = getUserModel({ mongoose });

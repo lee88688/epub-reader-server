@@ -13,6 +13,7 @@ class UserController extends Controller {
       return;
     }
     ctx.session.user = res;
+    ctx.rotateCsrfSecret(); // refresh csrf token
     ctx.body = ctx.helper.createSuccessResp(null);
   }
   async logout() {
