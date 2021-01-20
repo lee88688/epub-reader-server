@@ -13,13 +13,35 @@ describe('test/app/controller/user.test.js', () => {
     await user.save();
   });
 
-  it('login', async () => {
+  it('login and logout', async () => {
     // const ctx = app.mockContext({});
     app.mockCsrf();
+    const resLogin = await app.httpRequest()
+      .post('/api/user/login')
+      .send(mockUser);
+    const loginCookie = resLogin.get('Set-Cookie');
+    assert(loginCookie.some(cookie => {
+      const m = cookie.match(/EGG_SESS=(.*?);/);
+      if (m && m[1]) {
+        return true;
+      }
+      return false;
+    }));
+
+    const regLogout = await app.httpRequest()
+      .post('/api/user/logout');
+    const logoutCookie = regLogout.get('Set-Cookie');
+    assert(logoutCookie.some(cookie => {
+      const m = cookie.match(/EGG_SESS=(.*?);/);
+      if (m && !m[1]) {
+        return true;
+      }
+      return false;
+    }));
+
     await app.httpRequest()
       .post('/api/user/login')
       .send(mockUser);
-    // console.log(res);
   });
 
   it('category', async () => {

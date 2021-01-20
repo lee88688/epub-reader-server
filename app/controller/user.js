@@ -18,7 +18,7 @@ class UserController extends Controller {
   }
   async logout() {
     const { ctx } = this;
-    this.session = null;
+    ctx.session = null;
     ctx.body = ctx.helper.createSuccessResp(null);
   }
   // crud api
