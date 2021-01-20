@@ -24,4 +24,5 @@ module.exports = app => {
   // mark
   router.resources('mark', '/api/mark/:book', controller.mark);
   // todo: when not start with /api will redirect to /public/index.html or /
+  router.get(/.*/, controller.home.index);
 };
